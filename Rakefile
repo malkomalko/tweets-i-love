@@ -4,6 +4,8 @@ require "motion/project"
 require "bundler"
 Bundler.require
 
+require "#{Dir.pwd}/tasks/generators"
+
 Motion::Project::App.setup do |app|
   extensions = File.join(app.project_dir, "app/extensions/*.rb")
 

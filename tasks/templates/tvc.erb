@@ -1,0 +1,28 @@
+class <%= klass %>TableViewController < UITableViewController
+
+  extend IB
+
+  attr_accessor :collection
+
+  def viewDidLoad
+    super
+  end
+
+  def tableView(table_view, cellForRowAtIndexPath:index_path)
+    item = collection[index_path.row]
+    cell = table_view.dequeueReusableCellWithIdentifier("{YOUR_CELL_ID}")
+    cell
+  end
+
+  def tableView(table_view, numberOfRowsInSection:section)
+    collection.length
+  end
+
+  def tableView(table_view, didSelectRowAtIndexPath:index_path)
+    case index_path.row
+    when 0 # Label Text
+
+    end
+  end
+
+end

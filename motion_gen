@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ $# -ne 3 ]
+then
+  echo "Usage: `basename $0` {vc|tvc|stvc} {ClassName} {output}"
+  exit 65
+fi
+
+make $1 NAME=$2 > $3.rb
