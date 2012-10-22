@@ -3,3 +3,10 @@ build
 resources/*.nib
 resources/*.momd
 resources/*.storyboardc
+ui.xcodeproj/
+vendor/
+plugins/**/build*
+plugins/**/src/build*
+.dat*
+*bridgesupport
+.build/
