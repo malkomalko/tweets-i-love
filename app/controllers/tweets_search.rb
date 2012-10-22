@@ -1,4 +1,4 @@
-class <%= klass %>TableViewController < UITableViewController
+class TweetsSearchTableViewController < UITableViewController
 
   extend IB
 

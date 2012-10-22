@@ -5,11 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Hello World-->
+        <!--Tweets Search Table View Controller - Tweets Search-->
         <scene sceneID="hn2-E1-EJy">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJa-S5-w0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="aVn-ft-dT9" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TweetsSearch" id="aVn-ft-dT9" customClass="TweetsSearchTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zPn-Jj-cGp">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Hello World" id="3rH-gU-PAE"/>
+                    <navigationItem key="navigationItem" title="Tweets Search" id="3rH-gU-PAE"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="35" y="-38"/>
@@ -38,6 +38,7 @@
                 <navigationController definesPresentationContext="YES" id="AvU-E8-PMh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="QEX-OZ-u8d">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="aVn-ft-dT9" kind="relationship" relationship="rootViewController" id="wMX-Zf-Tve"/>
@@ -47,6 +48,14 @@
             <point key="canvasLocation" x="-499" y="-38"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="TweetsSearchTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TweetsSearchTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="viewDidLoad"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
