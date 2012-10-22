@@ -26,7 +26,11 @@ class AppDelegate
   end
 
   def setup_notifications
-    # App.notification_center.observe("event") { |notification| }
+    # App.notification_center.post("event", { key: "value" })
+
+    # App.notification_center.observe("event") do |notification|
+    #   payload = notification.safe("object") || {}
+    # end
   end
 
 end
