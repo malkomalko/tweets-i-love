@@ -1,15 +1,17 @@
-module AppConfig
+module App
+  module Config
 
-  CONFIG = {
-    "development" => {
+    CONFIG = {
+      "development" => {
 
-    },
-    "test" => {
+      },
+      "test" => {
 
-    },
-    "release" => {
+      },
+      "release" => {
 
+      }
     }
-  }
 
+  end
 end

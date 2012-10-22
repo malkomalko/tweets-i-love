@@ -9,7 +9,7 @@ module BubbleWrap
     end
 
     def config
-      AppConfig::CONFIG[RUBYMOTION_ENV]
+      App::Config::CONFIG[RUBYMOTION_ENV]
     end
 
     def current_controller
@@ -34,6 +34,10 @@ module BubbleWrap
 
     def nav_controller
       _window.rootViewController
+    end
+
+    def playground
+      App::Playground
     end
 
     def plist_key(key)
