@@ -10,3 +10,4 @@ plugins/**/src/build*
 .dat*
 *bridgesupport
 .build/
+.vim_librarian
