@@ -23,4 +23,8 @@ class TweetViewController < UIViewController
     profile_image.image = UIImage.imageWithData(cached_image)
   end
 
+  def add_to_favorites(sender)
+
+  end
+
 end
