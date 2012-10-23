@@ -6,7 +6,7 @@ class TweetsSearchTableViewController < UITableViewController
 
   def viewDidLoad
     super
-    @collection = [*"a".."z"]
+    @collection = []
 
     setup_delegates
   end
@@ -20,7 +20,7 @@ class TweetsSearchTableViewController < UITableViewController
   def tableView(table_view, cellForRowAtIndexPath:index_path)
     item = @collection[index_path.row]
     cell = table_view.dequeueReusableCellWithIdentifier("TweetFromSearch")
-    cell.label.text = item
+    cell.label.text = item["text"]
     cell
   end
 
@@ -44,7 +44,15 @@ class TweetsSearchTableViewController < UITableViewController
   # search bar delegates
 
   def searchBarSearchButtonClicked(search_bar)
+    search_for_tweets
     reset_search_bar
+  end
+
+  def search_for_tweets
+    API::Twitter.search(search_bar.text) do |tweets|
+      @collection = tweets
+      view.reloadData
+    end
   end
 
   def reset_search_bar
