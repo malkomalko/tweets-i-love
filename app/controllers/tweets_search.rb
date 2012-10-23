@@ -7,7 +7,15 @@ class TweetsSearchTableViewController < UITableViewController
   def viewDidLoad
     super
     @collection = [*"a".."z"]
+
+    setup_delegates
   end
+
+  def setup_delegates
+    search_bar.delegate = self
+  end
+
+  # table view delegates
 
   def tableView(table_view, cellForRowAtIndexPath:index_path)
     item = @collection[index_path.row]
@@ -21,6 +29,7 @@ class TweetsSearchTableViewController < UITableViewController
   end
 
   def tableView(table_view, didSelectRowAtIndexPath:index_path)
+    reset_search_bar
     selected_row = index_path.row
   end
 
@@ -30,6 +39,17 @@ class TweetsSearchTableViewController < UITableViewController
 
   def tableView(table_view, heightForHeaderInSection:section)
     44
+  end
+
+  # search bar delegates
+
+  def searchBarSearchButtonClicked(search_bar)
+    reset_search_bar
+  end
+
+  def reset_search_bar
+    search_bar.text = ""
+    search_bar.resignFirstResponder
   end
 
 end
