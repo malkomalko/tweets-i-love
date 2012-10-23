@@ -7,6 +7,7 @@ class TweetsSearchTableViewController < UITableViewController
   def viewDidLoad
     super
     @collection = []
+    @selected_tweet = App.storyboard.initController("CurrentTweet")
 
     setup_delegates
   end
@@ -36,7 +37,11 @@ class TweetsSearchTableViewController < UITableViewController
 
   def tableView(table_view, didSelectRowAtIndexPath:index_path)
     reset_search_bar
-    selected_row = index_path.row
+    tweet = @collection[index_path.row]
+
+    @selected_tweet.tweet = tweet
+    @selected_tweet.cached_image = table_view.cached_images[index_path.row]
+    App.nav_controller << @selected_tweet
   end
 
   def tableView(table_view, viewForHeaderInSection:section)

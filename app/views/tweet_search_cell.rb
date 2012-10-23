@@ -1,4 +1,4 @@
-class TweetSeachCell < UITableViewCell
+class TweetSearchCell < UITableViewCell
 
   extend IB
 
