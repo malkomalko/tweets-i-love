@@ -25,6 +25,8 @@ class TweetsSearchTableViewController < UITableViewController
     table_view.image_from_url(url, cell.profile_image, index_path)
 
     cell.label.text = tweet.text
+    cell.label.frame = [[66,6],[241,66]]
+
     cell
   end
 
