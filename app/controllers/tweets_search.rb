@@ -20,6 +20,10 @@ class TweetsSearchTableViewController < UITableViewController
   def tableView(table_view, cellForRowAtIndexPath:index_path)
     tweet = @collection[index_path.row]
     cell = table_view.dequeueReusableCellWithIdentifier("TweetFromSearch")
+
+    url = tweet.profile_image_url
+    table_view.image_from_url(url, cell.profile_image, index_path)
+
     cell.label.text = tweet.text
     cell
   end
@@ -51,6 +55,7 @@ class TweetsSearchTableViewController < UITableViewController
   def search_for_tweets
     API::Twitter.search(search_bar.text) do |tweets|
       @collection = tweets
+      view.cached_images = {}
       view.reloadData
     end
   end

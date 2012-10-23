@@ -1,5 +1,7 @@
 class UITableView
 
+  attr_accessor :cached_images
+
   def image_from_url(url, image_view, index_path)
     @cached_images ||= {}
     cached_image_data = @cached_images[index_path.row]
