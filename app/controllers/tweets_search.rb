@@ -18,9 +18,9 @@ class TweetsSearchTableViewController < UITableViewController
   # table view delegates
 
   def tableView(table_view, cellForRowAtIndexPath:index_path)
-    item = @collection[index_path.row]
+    tweet = @collection[index_path.row]
     cell = table_view.dequeueReusableCellWithIdentifier("TweetFromSearch")
-    cell.label.text = item["text"]
+    cell.label.text = tweet.text
     cell
   end
 
