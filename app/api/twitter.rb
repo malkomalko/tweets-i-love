@@ -1,0 +1,23 @@
+module API
+  module Twitter
+
+    module_function
+
+    def search(term, &block)
+      url = "http://search.twitter.com/search.json?q="
+      url += "#{term}&rpp=25&include_entities=true"
+
+      BW::HTTP.get(url) { |res| block[parse_json(res)] }
+    end
+
+    def parse_json(res)
+      begin
+        json = BW::JSON.parse(res.body.to_str)
+        json["results"]
+      rescue BubbleWrap::JSON::ParserError
+        { "msg" => "An unknown error has occurred" }
+      end
+    end
+
+  end
+end
