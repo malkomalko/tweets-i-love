@@ -6,6 +6,7 @@ class TweetsSearchTableViewController < UITableViewController
 
   def viewDidLoad
     super
+
     @collection = []
     @selected_tweet = App.storyboard.initController("CurrentTweet")
 

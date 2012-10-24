@@ -29,11 +29,11 @@ module BubbleWrap
     end
 
     def navbar
-      App.window.subviews[1]
+      App.current_controller.navigationController.navigationBar
     end
 
     def nav_controller
-      _window.rootViewController
+      App.current_controller.navigationController
     end
 
     def playground

@@ -1,17 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="AvU-E8-PMh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GXP-Lb-FJh">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller - Search-->
+        <scene sceneID="RGX-Ai-eqB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0d4-oe-syN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="Mw7-dD-Q9T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="f6W-nW-IiT"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hcU-cU-B9B">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aVn-ft-dT9" kind="relationship" relationship="rootViewController" id="vpy-MO-zkZ"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="378" y="-302"/>
+        </scene>
+        <!--Navigation Controller - Favorites-->
+        <scene sceneID="K8d-AW-sAs">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Th-bN-Gf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="hXY-F4-sdu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.png" id="UVj-PQ-GS5"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4QY-B5-SW7">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yJr-Bd-K8D" kind="relationship" relationship="rootViewController" id="6nK-cr-C6A"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="378" y="310"/>
+        </scene>
         <!--Tweets Search Table View Controller - Tweets Search-->
         <scene sceneID="hn2-E1-EJy">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJa-S5-w0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="TweetsSearch" id="aVn-ft-dT9" customClass="TweetsSearchTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="zPn-Jj-cGp">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -50,6 +84,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="Kcy-qx-aNT"/>
                     <navigationItem key="navigationItem" title="Tweets Search" id="3rH-gU-PAE"/>
                     <connections>
                         <outlet property="search_bar" destination="Xzs-Ca-anO" id="e9O-Kh-9Lz"/>
@@ -62,7 +97,81 @@
                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                 </searchBar>
             </objects>
-            <point key="canvasLocation" x="-57" y="-38"/>
+            <point key="canvasLocation" x="775" y="-302"/>
+        </scene>
+        <!--Favorite Tweets Table View Controller - Favorites-->
+        <scene sceneID="Q75-7w-v2v">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A00-64-Zmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="TweetsSearch" id="yJr-Bd-K8D" customClass="FavoriteTweetsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="X7N-1q-Jjf">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TweetFromSearch" rowHeight="82" id="CYS-th-XGB" customClass="TweetSearchCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="82"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="7Fa-fP-IJf">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="br8-rB-xrI">
+                                                    <rect key="frame" x="8" y="8" width="48" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="fJc-Kc-sRl">
+                                                    <rect key="frame" x="66" y="6" width="241" height="66"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="label" destination="fJc-Kc-sRl" id="K58-XL-bkB"/>
+                                    <outlet property="profile_image" destination="br8-rB-xrI" id="ZUs-rd-nOE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.png" id="dem-Ba-2Ga"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="Gjo-Zm-uWb"/>
+                    <connections>
+                        <outlet property="search_bar" destination="Xzs-Ca-anO" id="M76-Gt-JcE"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="775" y="310"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="bXd-El-yw2">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHx-KI-Mee" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController definesPresentationContext="YES" id="GXP-Lb-FJh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vzU-ch-xKj"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Zhn-cW-uzV">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Mw7-dD-Q9T" kind="relationship" relationship="viewControllers" id="gkP-Hb-2rQ"/>
+                        <segue destination="hXY-F4-sdu" kind="relationship" relationship="viewControllers" id="MlS-yB-UzX"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-62" y="-38"/>
         </scene>
         <!--Tweet View Controller-->
         <scene sceneID="twp-Y1-acp">
@@ -74,25 +183,25 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="XOt-gB-jFY">
-                                <rect key="frame" x="20" y="39" width="80" height="80"/>
+                                <rect key="frame" x="20" y="47" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="O6y-qw-mX3">
-                                <rect key="frame" x="20" y="124" width="280" height="33"/>
+                                <rect key="frame" x="117" y="56" width="183" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.47843137254901963" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="rgr-CH-KwS">
-                                <rect key="frame" x="20" y="165" width="280" height="244"/>
+                                <rect key="frame" x="20" y="134" width="280" height="244"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ioH-Da-1Mc">
-                                <rect key="frame" x="108" y="42" width="207" height="54"/>
+                                <rect key="frame" x="105" y="4" width="207" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="love_tweet_280x74.png">
@@ -117,29 +226,21 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="337" y="-38"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="tEz-LR-1FR">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SGi-aF-8al" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController definesPresentationContext="YES" id="AvU-E8-PMh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="QEX-OZ-u8d">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="aVn-ft-dT9" kind="relationship" relationship="rootViewController" id="wMX-Zf-Tve"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-499" y="-38"/>
+            <point key="canvasLocation" x="1165" y="-38"/>
         </scene>
     </scenes>
     <resources>
+        <image name="heart.png" width="30" height="30"/>
         <image name="love_tweet_280x74.png" width="280" height="74"/>
+        <image name="search.png" width="30" height="30"/>
     </resources>
     <classes>
+        <class className="FavoriteTweetsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteTweetsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="viewDidLoad"/>
+            </relationships>
+        </class>
         <class className="TweetSearchCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TweetSearchCell.h"/>
             <relationships>
@@ -153,6 +254,7 @@
             <relationships>
                 <relationship kind="action" name="add_to_favorites:"/>
                 <relationship kind="action" name="fill_in_tweet"/>
+                <relationship kind="action" name="toggle_favorite_button"/>
                 <relationship kind="action" name="viewDidLoad"/>
                 <relationship kind="action" name="viewWillAppear:"/>
                 <relationship kind="outlet" name="favorite_button"/>
