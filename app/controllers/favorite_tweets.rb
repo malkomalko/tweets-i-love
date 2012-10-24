@@ -6,6 +6,7 @@ class FavoriteTweetsTableViewController < UITableViewController
     super
 
     @selected_tweet = App.storyboard.initController("CurrentTweet")
+    setup_events
   end
 
   def viewWillAppear(animated)
@@ -13,6 +14,12 @@ class FavoriteTweetsTableViewController < UITableViewController
 
     @collection = Models::MMTweet.all
     view.reloadData
+  end
+
+  def setup_events
+    App.notification_center.observe("tweets:favorite") do |notification|
+      view.cached_images = {}
+    end
   end
 
   # table view delegates

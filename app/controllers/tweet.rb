@@ -43,6 +43,7 @@ class TweetViewController < UIViewController
       Models::MMTweet.one({ id_str: tweet.id_str }).delete
     end
 
+    App.notification_center.post("tweets:favorite")
     toggle_favorite_button
   end
 
