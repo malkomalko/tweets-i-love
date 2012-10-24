@@ -24,7 +24,7 @@ class TweetViewController < UIViewController
   end
 
   def add_to_favorites(sender)
-
+    Models::MMTweet.create(tweet.to_hash)
   end
 
 end

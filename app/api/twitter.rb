@@ -36,5 +36,12 @@ module API
       tweets.map { |tweet| new(tweet) }
     end
 
+    def to_hash
+      instance_variables.reduce({}) do |memo, iv|
+        memo[iv[1..-1].to_sym] = instance_variable_get(iv)
+        memo
+      end
+    end
+
   end
 end
