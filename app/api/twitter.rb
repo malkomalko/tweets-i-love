@@ -13,7 +13,6 @@ module API
     def parse_json(res)
       begin
         json = BW::JSON.parse(res.body.to_str)
-        $json = json
         API::Tweet.from_json(json["results"])
       rescue BubbleWrap::JSON::ParserError
         { "msg" => "An unknown error has occurred" }
