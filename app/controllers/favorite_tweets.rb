@@ -4,6 +4,8 @@ class FavoriteTweetsTableViewController < UITableViewController
 
   def viewDidLoad
     super
+
+    @selected_tweet = App.storyboard.initController("CurrentTweet")
   end
 
   def viewWillAppear(animated)
@@ -32,6 +34,10 @@ class FavoriteTweetsTableViewController < UITableViewController
 
   def tableView(table_view, didSelectRowAtIndexPath:index_path)
     tweet = @collection[index_path.row]
+
+    @selected_tweet.tweet = tweet
+    @selected_tweet.cached_image = table_view.cached_images[index_path.row]
+    App.nav_controller << @selected_tweet
   end
 
 end
